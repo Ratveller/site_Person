@@ -1,0 +1,364 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/layout";
+@import "compass/typography";
+@import "compass/utilities";
+@import "variables.scss";
+@import "mixin.scss";
+@import "other_style.scss";
+/*==============================
+=            Header            =
+==============================*/
+#header {
+	height: 270px;
+	padding-top: 50px;
+	background: url( $main_bg_d ) repeat;
+	.person_name {
+		font: bold 2.2em "Lato",sans-serif;
+		text-transform: uppercase;
+		color: #fff;
+		text-shadow: 1px 1px 5px #000;
+	}
+	.person_prof {
+		font: 1.1em "lato", sans-serif;
+		margin-bottom: 40px;
+		text-transform: uppercase;
+		color: $main_b;
+		text-shadow: 1px 1px 5px #000;
+	}
+	.nav {
+		display: block;
+		transform: skew(-30deg, 0);
+		position: absolute;
+		top: 105px;
+		right: 0;
+		margin: 0 auto;
+		li {
+			position: relative;
+			display: inline-block;
+			margin-right: -6px;
+			background-color: $main_color;
+			&:nth-Child(4):after {
+				position: absolute;
+				z-index: -10;
+				bottom: -115px;
+				left: 0;
+				width: 100%;
+				height: 500px;
+				content: "";
+				background-color: rgba(52,148,212, .1);
+			}
+			&:active, &:hover {
+				background-color: $main_b;
+			}
+			a {
+				font: 1.1em "Lato", sans-serif;
+				display: block;
+				padding: 15px 42px;
+				transform: skew(30deg, 0);
+				text-align: center;
+				text-transform: uppercase;
+				color: #fff;
+				text-shadow: 1px 1px 5px #000;
+			}
+		}// End li
+	}// End nav
+}// #header
+/*=====  End of Header  ======*/
+
+/*===============================
+=            Details            =
+===============================*/
+#details {
+	position: relative;
+	background: url( $main_bg_w ) repeat;
+	.person_info {
+		@extend .clearfix;
+		.info {
+			.field_info {
+				float: left;
+				margin-top: 35px;
+				margin-right: 60px;
+				@extend .clearfix;
+				.field_name {
+					padding-bottom: 15px;
+					text-transform: uppercase;
+					@include lato;
+				}// .field_name
+				.field_atribute {
+					padding-bottom: 15px;
+					color: #489fdd;
+					@include lato;
+				}// .fiend_atribute
+				img {
+					box-shadow: 3px 3px 40px #83ACC6;
+				}
+			}// .fiend_info
+			.social {
+				display: block;
+				margin-top: 25px;
+				li {
+					font-size: 35px;
+					display: inline-block;
+					margin-right: 10px;
+					i {
+						&:hover {
+							transform: scale(1.2, 1.2);
+							transition: all .2s;
+						}
+					}
+				}
+				.face {
+					$color: #3c5b9c;
+					color: $color;
+					@include color_darcen ($color);}
+				.vk {
+					$color: #2d97ef;
+					background-color: $color;
+					color: #fff;
+					border-radius: 5px;
+					margin-bottom: 3px;
+					font-size: 23px;
+					padding: 5px;
+					position: relative;
+					top: -5px;
+					&:hover {
+						background-color: darken($color, 15%);
+					}
+				}
+				.skype {
+					$color: #10bdf0;
+					color: $color;
+					@include color_darcen ($color);
+				}
+			}
+		}// .info
+	}// .person_info 
+	.progress_skill {
+		position: relative;
+		width: 100%;
+		height: 320px;
+		.html_css {
+			text-transform: uppercase;
+			@include progress_style (200, 3, 70, 330);
+			@include radial_grad (center, rgba(255,255,255,.9), rgba(33,105,153,.9));
+			p {
+				@include progress_text(34%,18,45);
+			}
+			&.hover {
+				transform: scale(1.01, 1.01);
+			}
+			.skill_text {
+				top: 15px;
+				p {
+					@include lato(18);
+				}
+			}// .skill_text
+		}
+		.bootstrap {
+			@include progress_style (120, 2, 50, 510);
+			@include radial_grad (center, rgba(255,255,255,.7), rgba(158,180,194,.7));
+			p {
+				@include progress_text(30%, 15, 25);
+			}
+			&.hover {
+				transform: scale(1.1, 1.1);
+			}
+			.skill_text {
+				top: 22px;
+				left: 13px;
+				p {
+					@include lato(18);
+				}
+			}// .skill_text
+		}
+		.adaptive {
+			@include progress_style (100, 1, 110, 605);
+			@include radial_grad (center, rgba(255,255,255,.6), rgba(158,172,219,.9));
+			p {
+				@include progress_text(25%, 18, 30);
+			}
+			&.hover {
+				transform: scale(1.3, 1.3);
+			}
+			.skill_text {
+				top: 11px;
+				left: 0;
+				p {
+					@include lato(13);
+				}
+			}// .skill_text
+		}
+		.kross {
+			@include progress_style (130, 2, 15, 238);
+			@include radial_grad (center, rgba(255,255,255,.7), rgba(126,134,227,.7));
+			p {
+				@include progress_text(20%, 18, 35);
+			}
+		}
+		.sass {
+			@include progress_style (110, 2, 190, 250);
+			@include radial_grad (center, rgba(255,255,255,.6), rgba(103,201,229,.6));
+			p {
+				@include progress_text(26%, 20, 30);
+			}
+			&.hover {
+				transform: scale(1.3, 1.3);
+			}
+			.skill_text {
+				top: 10px;
+				left: 0;
+				p {
+					@include lato(15);
+				}
+			}// .skill_text
+		}
+		.js {
+			@include progress_style (80, 2, 30, 700);
+			@include radial_grad (center, rgba(255,255,255,.4), rgba(171,189,201,.5));
+			p {
+				@include progress_text(30%, 15, 18);
+			}
+			&.hover {
+				transform: scale(1.9, 1.9);
+			}
+			.skill_text {
+				top: 0;
+				left: 0;
+				p {
+					@include lato(10);
+				}
+			}// .skill_text
+		}
+		.jq {
+			@include progress_style (95, 1, 45, 770);
+			@include radial_grad (center, rgba(255,255,255,.6), rgba(133,216,221,.4));
+			p {
+				@include progress_text(27%, 18, 23);
+			}
+		}
+		.photoshop {
+			@include progress_style (100, 1, 120, 70);
+			@include radial_grad (center, rgba(255,255,255,.6), rgba(121,142,170,.6));
+			p {
+				@include progress_text(27%, 18, 23);
+			}
+			&.hover {
+				transform: scale(1.4, 1.4);
+			}
+			.skill_text {
+				top: 10px;
+				left: 0;
+				p {
+					@include lato(13);
+				}
+			}// .skill_text
+		}//.photoshop
+		.skill_text {
+			position: absolute;
+			display: none;
+			text-align: justify;
+			z-index: 10;
+		}
+	} // .progress_skill
+}
+/*=====  End of Details  ======*/
+
+/*==================================
+=            Experience            =
+==================================*/
+#experiense {
+	background: url($main_bg_d) repeat;
+	.my_data {
+		margin-top: 40px;
+		.dot {
+			float: left;
+			width: 24px;
+			height: 24px;
+			margin-bottom: 114px;
+			border-radius: 50%;
+			background-color: #3498db;
+			@include radial_grad (top left, #fff, #3498db, #000);
+			&:after {
+				display: block;
+				width: 7px;
+				height: 153px;
+				content: '';
+				margin: 24px auto;
+				background-color: #fff;
+			}
+		}// .dot
+		.text_block {
+			float: left;
+			width: 95%;
+			margin-left: 20px;
+			margin-top: 2px;
+			.exp_title {
+				margin-bottom: 15px;
+				@include lato;
+				text-transform: uppercase;
+				color: #fff;
+				p {
+				display: inline-block;
+				}// .exp_title p
+			}// .exp_title
+			.date {
+				display: inline-block;
+				transform: skew(-30deg, 0);
+				background-color: #3A9ADA;
+				margin-left: 30px;
+				position: relative;
+				top: -2px;
+				p {
+					display: block;
+					transform: skew(30deg, 0);
+					padding: 5px 10px;
+					@include lato(12);
+				}
+			}// .date
+			.exp_text {
+				color: #fff;
+				@include lato;
+				line-height: 25px;
+			}
+		}// .text_block 
+	}//.my_data 
+	.other_text_block {padding-bottom: 80px;}
+}//#experiense
+/*=====  End of Experience  ======*/
+
+/*====================================
+=            My Portfolio            =
+====================================*/
+#portfolio {
+	padding-bottom: 80px;
+	background: url($main_bg_w);
+	.port_block {
+		margin-top: 45px;
+		.block_style {
+			position: relative;
+			display: inline-block;
+			width: 290px;
+			height: 175px;
+			margin-right: 3.5%;
+			opacity: .7;
+			background-color: #ccc;
+			&::after {
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				width: 0;
+				height: 0;
+				content: "";
+				border: 20px solid transparent;
+				border-top: 20px solid #fff;
+				border-left: 20px solid #fff;
+			}
+		}// .block_style
+		.block_3 {
+			margin-right: 0;
+		}
+	}// .port_block
+}// #portfolio
+/*=====  End of My Portfolio  ======*/

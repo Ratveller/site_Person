@@ -1,0 +1,67 @@
+//Fonts
+@mixin ubuntu($size: 27, $weight: normal) {
+	font: {
+		family: Ubuntu;
+		size: $size + px;
+		style: $weight;
+	}
+}
+@mixin lato($size: 18) {
+	font: {
+		family: Lato;
+		size: $size + px;
+	}
+}
+//Skill style
+@mixin progress_style ($size_prog, $z_in, $top, $left) {
+	border-radius: 50%;
+	display: block;
+	position: absolute;
+	cursor: pointer;
+	width: $size_prog + px;
+	height: $size_prog + px;
+	z-index: $z_in;
+	top: $top + px;
+	left: $left + px;
+}
+@mixin radial_grad ($position, $color...) {
+	background: -webkit-radial-gradient($position, circle cover, $color);
+	background: -moz-radial-gradient($position, circle cover, $color);
+	background: -o-radial-gradient($position, circle cover, $color);
+	background: -ms-radial-gradient($position, circle cover, $color);
+	background: radial-gradient($position, circle cover, $color);
+}
+@mixin progress_text ($marg_top: 30%, $font_size_text: 18, $font_size_percent: 20) {
+	display: block;
+	margin-top: $marg_top;
+	text-align: center;
+	text-shadow: 0 1px 1px #fff, 0 -1px 1px #000;
+	@include lato ($font_size_text);
+	span {
+		display: block;
+		@include lato ($font_size_percent);
+	}
+}
+@mixin color_darcen ($color_darc) {
+	&:hover {
+		color: darken($color_darc, 15%);
+	}
+}
+@mixin skill_text($scale: 1.1, $top: 0, $text_size: 18) {
+	transform: scale($scale, $scale);
+	transition: all .2s;
+	.skill_text {
+		display: block !important;
+		position: absolute;
+		top: $top + px;
+		left: 0;
+		text-align: justify;
+		z-index: 10;
+		p {
+			@include lato($text_size);
+		}
+	}
+	.skill_name {
+		display: none !important;
+	}
+}
